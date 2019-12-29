@@ -27,8 +27,8 @@ class Filters extends Component {
         }
 
         return (
-            <div key={fType}>
-                <h3>{fType}</h3>
+            <div key={fType} class="filter-block">
+                <b><h3>{fType.toUpperCase()}</h3></b>
                 {f}
             </div>
         )
