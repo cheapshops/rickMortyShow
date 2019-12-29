@@ -6,7 +6,7 @@ import './App.css';
 import Header from "./components/Header"
 import Filters from "./components/Filters"
 import Content from "./components/Content"
-import { fetchCharacterRequest, toggleFilter } from './redux/actions'
+import { fetchCharacterRequest, toggleFilter, doSearch } from './redux/actions'
 
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
                         <Filters filters={this.props.filters} toggleFilter={this.props.toggleFilter}/>
                     </Col>
                     <Col lg={20} sm={6}>
-                        <Content data={this.props.characters.data}/>
+                        <Content data={this.props.characters.data} doSearch={this.props.doSearch}/>
                     </Col>
                 </Row>
             </div>
@@ -39,6 +39,7 @@ const mapStateToProps = state => ({
 const mapDisptachToProps = dispatch => ({
   fetchCharacterRequest: (data) => dispatch( fetchCharacterRequest()),
   toggleFilter: (data) => dispatch( toggleFilter(data)),
+  doSearch: (data) => dispatch( doSearch(data)),
 })
 
 export default connect(

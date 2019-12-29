@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import Character from "./Character";
 import { Row, Col } from 'antd';
+import { Input } from 'antd';
+
+const { Search } = Input;
 
 class Content extends Component {
+    _onSearch = (e) => {
+        let text = e.target.value
+        this.props.doSearch( text )
+    }
   render() {
     const { data } = this.props
-    console.log( data )
     return (
         <div className="content-container">
-            <h1>Content</h1>
+            <Row>
+                <Col lg={6} >
+                    <Search placeholder="Search By Name" onChange={this._onSearch} enterButton />
+                </Col>
+                <Col lg={6} >
+                </Col>
+            </Row>
+            <br/>
             <Row>
             {
                 data.map( ( character, key ) => {
