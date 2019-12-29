@@ -26,7 +26,8 @@ code {
     border: 1px solid black;
     border-radius: 10px;
     margin: 5px;
-    height: 430px;
+    min-height: 430px;
+    background: #333333;
 }
 .char-block > .name-block {
     margin-top: -70px;

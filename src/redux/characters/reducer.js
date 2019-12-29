@@ -71,6 +71,47 @@ const doSort = ( state, action ) => {
     })
 }
 
+const doFilter = ( state, action ) => {
+    let fltrs = action.payload;
+    let oldData = state.data_backup
+
+    let executeFiltereration = false;
+    for( var k in fltrs ){
+        for( var kk in fltrs[k] ){
+            if( fltrs[k][kk ] ){
+                executeFiltereration = true
+            }
+        }
+    }
+
+    let newData = []
+    if(executeFiltereration){
+        oldData.map((i) => {
+            let i_species = i.species;
+            let i_gender = i.gender
+            let i_origin = i.origin.name
+
+            let isValid = false;
+
+            for( var k in fltrs ){
+                for( var kk in fltrs[k] ){
+                    if( fltrs[k][kk ] ){
+                        if( i[k] == kk ){
+                            newData.push(i)
+                        }
+                    }
+
+                }
+            }
+        })
+    } else {
+        newData = oldData
+    }
+    return update( state, {
+        data: { $set: newData },
+    })
+}
+
 export default handleActions(
   {
     [constants.FETCH_CHARACTER_REQUEST]: fetchCharacterRequest,
@@ -78,6 +119,7 @@ export default handleActions(
     [constants.FETCH_CHARACTER_REQUEST_ERROR]: fetchCharacterRequestError,
     [constants.DO_SEARCH]: doSearch,
     [constants.DO_SORT]: doSort,
+    [constants.DO_FILTER]: doFilter
   },
   initialState
 )

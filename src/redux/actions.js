@@ -10,3 +10,5 @@ export const toggleFilter = createAction( constants.TOGGLE_FILTER )
 export const doSearch = createAction( constants.DO_SEARCH )
 
 export const doSort = createAction( constants.DO_SORT )
+
+export const doFilter = createAction( constants.DO_FILTER )

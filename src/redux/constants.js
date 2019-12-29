@@ -7,3 +7,5 @@ export const TOGGLE_FILTER = "TOGGLE_FILTER"
 export const DO_SEARCH = "DO_SEARCH"
 
 export const DO_SORT = "DO_SORT"
+
+export const DO_FILTER = "DO_FILTER"

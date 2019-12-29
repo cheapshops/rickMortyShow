@@ -27,7 +27,7 @@ class Content extends Component {
                 </Col>
                 <Col lg={16} right >
                     <Select placeholder="Sort by ID" style={{ width: 120, float:'right' }} onChange={this._handleSorting}>
-                        <Option value="ascending">Ascending</Option>
+                        <Option key="ascending" value="ascending">Ascending</Option>
                         <Option value="descending">Descending</Option>
                     </Select>
                 </Col>
@@ -37,7 +37,7 @@ class Content extends Component {
             {
                 data.map( ( character, key ) => {
                     return (
-                        <Col lg={5} style={{marginBottom: 10}}>
+                        <Col key={key} sm={12} md={12} lg={6} style={{marginBottom: 20}}>
                             <Character data={character}/>
                         </Col>
                     )

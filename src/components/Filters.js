@@ -18,8 +18,8 @@ class Filters extends Component {
         for ( var k in fs ){
             let checked = fs[k]
             f.push(
-                <Row>
-                    <Col lg={12}>
+                <Row  key={k}>
+                    <Col lg={24}>
                         <Checkbox checked={checked} key={k} main={fType} value={k} onChange={this._onFilterToggle}>{k}</Checkbox>
                     </Col>
                 </Row>
@@ -27,7 +27,7 @@ class Filters extends Component {
         }
 
         return (
-            <div>
+            <div key={fType}>
                 <h3>{fType}</h3>
                 {f}
             </div>
