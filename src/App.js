@@ -6,7 +6,7 @@ import './App.css';
 import Header from "./components/Header"
 import Filters from "./components/Filters"
 import Content from "./components/Content"
-import { fetchCharacterRequest, toggleFilter, doSearch } from './redux/actions'
+import { fetchCharacterRequest, toggleFilter, doSearch, doSort } from './redux/actions'
 
 
 class App extends Component {
@@ -14,6 +14,7 @@ class App extends Component {
     componentDidMount(){
         // this.props.fetchCharacterRequest()
     }
+
     render() {
         return (
             <div>
@@ -23,7 +24,11 @@ class App extends Component {
                         <Filters filters={this.props.filters} toggleFilter={this.props.toggleFilter}/>
                     </Col>
                     <Col lg={20} sm={6}>
-                        <Content data={this.props.characters.data} doSearch={this.props.doSearch}/>
+                        <Content
+                            data={this.props.characters.data}
+                            doSearch={this.props.doSearch}
+                            doSort={this.props.doSort}
+                        />
                     </Col>
                 </Row>
             </div>
@@ -40,6 +45,7 @@ const mapDisptachToProps = dispatch => ({
   fetchCharacterRequest: (data) => dispatch( fetchCharacterRequest()),
   toggleFilter: (data) => dispatch( toggleFilter(data)),
   doSearch: (data) => dispatch( doSearch(data)),
+  doSort: (data) => dispatch( doSort(data)),
 })
 
 export default connect(

@@ -8,3 +8,5 @@ export const fetchCharacterRequestError = createAction( constants.FETCH_CHARACTE
 export const toggleFilter = createAction( constants.TOGGLE_FILTER )
 
 export const doSearch = createAction( constants.DO_SEARCH )
+
+export const doSort = createAction( constants.DO_SORT )

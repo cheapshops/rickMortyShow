@@ -54,12 +54,30 @@ const doSearch = ( state, action ) => {
     }
 }
 
+const doSort = ( state, action ) => {
+    let oldData = state.data
+    let newData = []
+    if( action.payload == "ascending" ){
+        newData = oldData.sort(function(a, b){
+            return a.id - b.id
+        })
+    } else if ( action.payload == 'descending' ){
+        newData = oldData.sort(function(a, b){
+            return b.id - a.id
+        })
+    }
+    return update( state, {
+        data: { $set: newData },
+    })
+}
+
 export default handleActions(
   {
     [constants.FETCH_CHARACTER_REQUEST]: fetchCharacterRequest,
     [constants.FETCH_CHARACTER_REQUEST_SUCCESS]: fetchCharacterRequestSuccess,
     [constants.FETCH_CHARACTER_REQUEST_ERROR]: fetchCharacterRequestError,
-    [constants.DO_SEARCH]: doSearch
+    [constants.DO_SEARCH]: doSearch,
+    [constants.DO_SORT]: doSort,
   },
   initialState
 )
