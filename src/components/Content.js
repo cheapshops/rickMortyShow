@@ -13,7 +13,7 @@ class Content extends Component {
             {
                 data.map( ( character, key ) => {
                     return (
-                        <Col lg={5} style={{marginBottom: 100}}>
+                        <Col lg={5} style={{marginBottom: 10}}>
                             <Character data={character}/>
                         </Col>
                     )

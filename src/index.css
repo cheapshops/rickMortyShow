@@ -26,16 +26,40 @@ code {
     border: 1px solid black;
     border-radius: 10px;
     margin: 5px;
-    height: 450px;
+    height: 430px;
 }
-.char-block > .name {
-    margin-top: -50px;
+.char-block > .name-block {
+    margin-top: -70px;
     padding: 10px;
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+}
+.char-block > .name-block > .name {
+    font-size: 20px;
+    font-weight: bold;
 }
 .char-block > .other-info {
     padding: 10px;
 }
+.other-info{
+    background-color: #333333;
+    color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.other-detail {
+    padding: 5px;
+    border-bottom: 1px solid #373737;
+    font-size: 12px;
+}
+.other-detail > .value{
+    float: right;
+    color: #a1651a;
+}
 
 .char-image {
     width: 100%;
+    border-radius: 10px;
 }
+

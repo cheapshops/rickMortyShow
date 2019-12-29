@@ -6,36 +6,46 @@ class Character extends Component {
   render() {
     const { data } = this.props
     console.log( data )
+    let cd = data.created
+    var d = new Date(cd);
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
+
+    let cdate = curr_month + "/" + curr_date + "/" + curr_year;
+
+    console.log( curr_date )
+
     return (
         <div className="char-block">
             <div>
                 <img className="char-image" src={data.image}/>
             </div>
-            <div className="name">
-                <span>{data.name}</span>
+            <div className="name-block">
+                <span className="name">{data.name}</span>
                 <br/>
-                ID: { data.id } - created { data.created }
+                ID: { data.id } - created { cdate }
             </div>
             <div className="other-info">
-                <div>
+                <div className="other-detail">
                     <span>STATUS</span>
-                    <span>{data.status || ""}</span>
+                    <span className="value">{data.status || ""}</span>
                 </div>
-                <div>
+                <div className="other-detail">
                     <span>SPECIES</span>
-                    <span>{data.species || ""}</span>
+                    <span className="value">{data.species || ""}</span>
                 </div>
-                <div>
+                <div className="other-detail">
                     <span>GENDER</span>
-                    <span>{data.gender || ""}</span>
+                    <span className="value">{data.gender || ""}</span>
                 </div>
-                <div>
+                <div className="other-detail">
                     <span>ORIGIN</span>
-                    <span>{data.origin.name || ""}</span>
+                    <span className="value">{data.origin.name || ""}</span>
                 </div>
-                <div>
+                <div className="other-detail">
                     <span>LAST LOCATION</span>
-                    <span>{data.location.name || ""}</span>
+                    <span className="value">{data.location.name || ""}</span>
                 </div>
             </div>
         </div>
