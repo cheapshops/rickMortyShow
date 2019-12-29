@@ -27,10 +27,20 @@ let initialState = {
     searchText: ""
 }
 
+const toggleFilter = ( state, action ) => {
+    let oldFilters = state.filters
+    return update( state, {
+        filters: {
+            [action.payload.main]: {
+                [action.payload.sub]: {$set : !oldFilters[action.payload.main][action.payload.sub] }
+            }
+        }
+    })
+}
 
 export default handleActions(
-  {
-
-  },
-  initialState
+    {
+        [constants.TOGGLE_FILTER]: toggleFilter
+    },
+    initialState
 )

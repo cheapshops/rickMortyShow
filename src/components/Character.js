@@ -5,17 +5,12 @@ import { Row, Col } from 'antd';
 class Character extends Component {
   render() {
     const { data } = this.props
-    console.log( data )
     let cd = data.created
     var d = new Date(cd);
     var curr_date = d.getDate();
     var curr_month = d.getMonth() + 1;
     var curr_year = d.getFullYear();
-
     let cdate = curr_month + "/" + curr_date + "/" + curr_year;
-
-    console.log( curr_date )
-
     return (
         <div className="char-block">
             <div>

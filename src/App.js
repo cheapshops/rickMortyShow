@@ -6,7 +6,7 @@ import './App.css';
 import Header from "./components/Header"
 import Filters from "./components/Filters"
 import Content from "./components/Content"
-import { fetchCharacterRequest } from './redux/actions'
+import { fetchCharacterRequest, toggleFilter } from './redux/actions'
 
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
                 <Header/>
                 <Row>
                     <Col lg={4} sm={6}>
-                        <Filters filters={this.props.filters}/>
+                        <Filters filters={this.props.filters} toggleFilter={this.props.toggleFilter}/>
                     </Col>
                     <Col lg={20} sm={6}>
                         <Content data={this.props.characters.data}/>
@@ -37,7 +37,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDisptachToProps = dispatch => ({
-  fetchCharacterRequest: (data) => dispatch( fetchCharacterRequest())
+  fetchCharacterRequest: (data) => dispatch( fetchCharacterRequest()),
+  toggleFilter: (data) => dispatch( toggleFilter(data)),
 })
 
 export default connect(

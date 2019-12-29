@@ -4,17 +4,23 @@ import { Row, Col } from 'antd';
 
 class Filters extends Component {
 
-    _onFilterToggle = () => {
-
+    _onFilterToggle = (e) => {
+        let val = e.target.value
+        let main = e.target.main
+        this.props.toggleFilter( {
+            main: main,
+            sub: val
+        })
     }
 
     _renderFilterBlock = ( fType, fs ) => {
         let f = []
         for ( var k in fs ){
+            let checked = fs[k]
             f.push(
                 <Row>
                     <Col lg={12}>
-                        <Checkbox key={k} onChange={this._onFilterToggle}>{k}</Checkbox>
+                        <Checkbox checked={checked} key={k} main={fType} value={k} onChange={this._onFilterToggle}>{k}</Checkbox>
                     </Col>
                 </Row>
             )
