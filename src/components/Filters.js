@@ -9,9 +9,6 @@ class Filters extends Component {
     }
 
     _renderFilterBlock = ( fType, fs ) => {
-        console.log( fType )
-        console.log( fs )
-
         let f = []
         for ( var k in fs ){
             f.push(
@@ -32,7 +29,6 @@ class Filters extends Component {
     }
     render() {
         const { filters } = this.props.filters
-        console.log( filters )
         let fsC = []
         for ( var k in filters ){
             fsC.push( this._renderFilterBlock(k, filters[k]) )

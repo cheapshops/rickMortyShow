@@ -14,21 +14,21 @@ class App extends Component {
     componentDidMount(){
         // this.props.fetchCharacterRequest()
     }
-  render() {
-    return (
-        <div>
-            <Header/>
-            <Row>
-                <Col lg={6} sm={6}>
-                    <Filters filters={this.props.filters}/>
-                </Col>
-                <Col lg={12} sm={6}>
-                    <Content/>
-                </Col>
-            </Row>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Header/>
+                <Row>
+                    <Col lg={4} sm={6}>
+                        <Filters filters={this.props.filters}/>
+                    </Col>
+                    <Col lg={20} sm={6}>
+                        <Content data={this.props.characters.data}/>
+                    </Col>
+                </Row>
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = state => ({

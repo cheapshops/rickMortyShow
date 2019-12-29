@@ -21,3 +21,21 @@ code {
 .content-container{
     padding: 20px
 }
+
+.char-block{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    height: 450px;
+}
+.char-block > .name {
+    margin-top: -50px;
+    padding: 10px;
+}
+.char-block > .other-info {
+    padding: 10px;
+}
+
+.char-image {
+    width: 100%;
+}
