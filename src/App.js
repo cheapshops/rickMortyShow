@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Row, Col } from 'antd';
 import logo from './logo.svg';
 import './App.css';
-
+import Header from "./components/Header"
+import Filters from "./components/Filters"
+import Content from "./components/Content"
 import { fetchCharacterRequest } from './redux/actions'
+
 
 class App extends Component {
 
     componentDidMount(){
-        this.props.fetchCharacterRequest()
+        // this.props.fetchCharacterRequest()
     }
   render() {
-    console.log( this.props )
     return (
-      <h1>Rick And Morty Show</h1>
+        <div>
+            <Header/>
+            <Row>
+                <Col lg={6} sm={6}>
+                    <Filters filters={this.props.filters}/>
+                </Col>
+                <Col lg={12} sm={6}>
+                    <Content/>
+                </Col>
+            </Row>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  login: state.login
+    filters: state.filters,
+    characters: state.characters,
 })
 
 const mapDisptachToProps = dispatch => ({
