@@ -19,7 +19,7 @@ class App extends Component {
     }
 
     componentDidMount(){
-        // this.props.fetchCharacterRequest()
+        this.props.fetchCharacterRequest()
     }
 
     static getDerivedStateFromProps(props, state) {
